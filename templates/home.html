@@ -1,0 +1,49 @@
+<html>
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Online Fraud Prediction</h1>
+
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+
+
+            <div class="form-group">
+              <label for="type">Type:</label>
+              <select class="form-control" id="type" name="type" required>
+                <option value="PAYMENT">Payment</option>
+                <option value="TRANSFER">Transfer</option>
+                <option value="CASH_OUT">Cash Out</option>
+                <option value="DEBIT">Debit</option>
+                <option value="CASH_IN">Cash In</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input class="form-control" type="number" id="amount" name="amount" placeholder="Enter the amount" required>
+            </div>
+
+            <div class="form-group">
+                <label for="oldbalanceOrg">Old Balance</label>
+                <input class="form-control" type="number" id="oldbalanceOrg" name="oldbalanceOrg" placeholder="Enter the old balance" required>
+            </div>
+
+            <div class="form-group">
+                <label for="newbalanceOrig">New Balance</label>
+                <input class="form-control" type="number" id="newbalanceOrig" name="newbalanceOrig" placeholder="Enter the new balance" required>
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Predict">
+            </div>
+        </form>
+
+        <h2>
+            THE prediction is {{results}}
+        </h2>
+    </div>
+</body>
+</html>
